@@ -7,8 +7,16 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<button 
+ion-button
+block
+[navPush]="userPage">
+Open customized back button page
+</button>
+<p *ngIf="platform.is('ios')">ios paragraph</p>
+<p *ngIf="platform.is('android')">Android paragraph</p>
+<p>Platform Width: {{platform.width()}}</p>
+<p>Platform Height: {{platform.height()}}</p>
+<p *ngIf="platform.isLandscape()">We are in Landscape mode</p>
+<p *ngIf="platform.isPortrait()">We are in Portrait mode</p>
 </ion-content>
